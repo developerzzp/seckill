@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SeckillDao">
+	<insert id="SuccessKilled">
+		<!-- 主键冲突，不报错 -->
+		insert ignore into success_killed(seckill_id,user_phone)
+		values(#{seckillId},#{userPhone})
+	</insert>
+	<!-- 可以自由控制SQL ,mybatis better then hibernate -->
+	<select id="queryByIdWithSuccessKill" resultType="dto.SuccessKilled">
+		select
+		seckill.name,
+		sk.user_phone,
+		sk.create_time,
+		sk.status,
+		s.seckill_id "skill.skill_id",
+		s.name "skill.name",
+		s.number "skill.number",
+		s.start_time "skill.startTime",
+		s.end_time "skill.endTime",
+		s.create_time "skill.createTime"
+		from
+		success_killed sk
+		inner join seckill s on sk.kill_id = s.seckill_id
+		where
+		sk.kill_id = #{seckillId}
+	</select>
+	
+</mapper>
