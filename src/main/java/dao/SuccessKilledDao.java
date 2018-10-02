@@ -1,6 +1,5 @@
 package dao;
 
-import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
@@ -12,12 +11,12 @@ public interface SuccessKilledDao {
 	 * @param successKilled
 	 * @return
 	 */
-	int insertSuccessKill(@Param("seckillId") long seckillId,@Param("userPhone")String userPhone);
+	int insertSuccessKill(@Param("seckillId") long seckillId,@Param("userPhone")long userPhone);
 	/**
 	 * 
 	 * @param seckillId
 	 * @return
 	 */
-	List<SuccessKilled> queryByIdWithSuccessKill(long seckillId);
+	SuccessKilled queryByIdWithSuccessKill(long seckillId,@Param("userPhone")long userPhone);
 
 }

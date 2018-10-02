@@ -12,7 +12,6 @@ import dto.SuccessKilled;
 public class SuccessKilledDaoTest {
 	@Resource
 	private SuccessKilledDao successKilledDao;
-
 	@Test
 	public void testInsertSuccessKill() {
 		long seckillId = 1000;
