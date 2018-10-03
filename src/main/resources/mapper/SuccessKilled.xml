@@ -8,7 +8,7 @@
 		values(#{seckillId},#{userPhone})
 	</insert>
 	<!-- 可以自由控制SQL ,mybatis better then hibernate -->
-	<select id="queryByIdWithSuccessKill" resultType="dto.SuccessKilled">
+	<select id="queryByIdWithSuccessKill" resultType="dto.SuccessKilled" parameterType="long">
 	select 
 	sk.user_phone, 
 	sk.create_time, 
@@ -20,7 +20,8 @@
 	 s.end_time "skill.endTime", 
 	 s.create_time "skill.createTime" from success_killed sk 
 	 inner join seckill s on sk.seckill_id = s.seckill_id where
-			sk.seckill_id = #{seckillId}
+			sk.seckill_id = #{0}
+			limit 1
 	</select>
 	
 </mapper>

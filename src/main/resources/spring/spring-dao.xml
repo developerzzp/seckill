@@ -8,7 +8,6 @@
  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
  <!-- 配置整合mybatis过程 -->
  <!-- 配置数据库相关参数 -->
- 
  <!-- classpath:在类路径下加载 -->
  <context:property-placeholder location="classpath:jdbc.properties"/>
  <!-- 数据库连接池 -->
