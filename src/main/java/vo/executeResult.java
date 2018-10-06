@@ -1,17 +1,12 @@
 package vo;
 
+
 import dto.SuccessKilled;
 import enums.SeckillStatusEnum;
-
 public class executeResult {
 	private long seckillId;
 	private int status;
 	private String statsInfo;
-	/**
-	 * 秒杀成功对象
-	 */
-	
-	
 	private SuccessKilled successKilled;
 	public executeResult(long seckillId, SeckillStatusEnum seckillStatusEnum, SuccessKilled successKilled) {
 		this.seckillId = seckillId;
@@ -19,16 +14,12 @@ public class executeResult {
 		this.statsInfo = seckillStatusEnum.getStatusInfo();
 		this.successKilled = successKilled;
 	}
-	
-	
-	public executeResult(long seckillId, int status, String statsInfo) {
+	public executeResult(long seckillId, SeckillStatusEnum statEnum) {
 		super();
 		this.seckillId = seckillId;
-		this.status = status;
-		this.statsInfo = statsInfo;
+		this.status = statEnum.getStatus();
+		this.statsInfo = statEnum.getStatusInfo();
 	}
-
-
 	public long getSeckillId() {
 		return seckillId;
 	}
