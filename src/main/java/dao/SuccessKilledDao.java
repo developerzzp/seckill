@@ -1,10 +1,6 @@
 package dao;
-
-
 import org.apache.ibatis.annotations.Param;
-
 import dto.SuccessKilled;
-
 public interface SuccessKilledDao {
 	/**
 	 * 插入成功秒杀商品信息
